@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>ajax与jquery</title>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	</head>
+
+	<body>
+		<h2>通过 JSON 字符串来创建对象</h3>
+		<input type="button" value="点我显示数据" id="click">
+        <table id="showTable" border="1">
+            <tr>
+                <td>deviceID</td>
+                <td>pTime</td>
+                <td>sCoordX</td>
+                <td>sCoordY</td>
+            </tr>
+        </table>
+
+		<script>
+                    $(document).ready(function(){
+                        $("#click").click(function(){
+                            $.ajax({
+                                type:'get',
+                                url:"../action/onlineLoadAction",
+                                dataType:"json",
+                                success:function(pntListJson){
+                                    var points = new Array();
+                                    $.each(pntListJson,function(i,pntJson){
+                                        points[i] = pntJson;
+                                        var _tr = $("<tr><td>"+points[i].deviceID+
+                                                    "</td><td>"+points[i].pTime+
+                                                    "</td><td>"+points[i].sCoordX+
+                                                    "</td><td>"+points[i].sCoordY+
+                                                    "</td></tr>");
+                                        $("#showTable").append(_tr);
+                                    });
+                                }
+                            });
+                        });
+                    });
+		</script>
+	</body>
+</html>

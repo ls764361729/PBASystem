@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1471235265_417005.eot');
+    /* IE9*/
+    src: url('//at.alicdn.com/t/font_1471235265_417005.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('//at.alicdn.com/t/font_1471235265_417005.woff') format('woff'), /* chrome、firefox */
+        url('//at.alicdn.com/t/font_1471235265_417005.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('//at.alicdn.com/t/font_1471235265_417005.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.toolicon {
+    font-family: "iconfont";
+    font-size: 35px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    color: white!important;
+    z-index: 1002;
+}
+
+.headicon {
+    font-family: "iconfont";
+    font-size: 25px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    color: white!important;
+    z-index: 1002;
+}
+
+#messageBtn {
+    margin:0 auto;
+    position:relative;
+    bottom: 5px;
+}
+
+#messageBtn_ICO {
+    font-family: "iconfont";
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    color: white!important;
+    z-index: 1002;
+}
+
+.divicon {
+    font-family: "iconfont";
+    font-size: 20px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    color: #515151 !important;
+    z-index: 1002;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    /*CSS下划线效果：无下划线*/
+}

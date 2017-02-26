@@ -1,0 +1,161 @@
+.floatDiv {
+    z-index: 1002;
+    display: none;
+    width: 800px;
+    height: 500px;
+    position: fixed;
+    left: 30%;
+    top: 15%;
+}
+
+#ArchDiv_List {
+    width: 800px;
+    height: 500px;
+    position: fixed;
+    left: 30%;
+    top: 14%;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+#ArchDiv_Query_Update {
+    width: 800px;
+    height: 500px;
+    position: fixed;
+    left: 30%;
+    top: 14%;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+#ArchDiv_Add {
+    width: 800px;
+    height: 530px;
+    position: fixed;
+    left: 30%;
+    top: 15%;
+}
+
+#ObjMonDiv_BehAny {
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    left: 15%;
+    top: 15%;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+#ObjMonDiv_SenAreaAdd {
+    width: 400px;
+    height: auto;
+    position: fixed;
+    left: auto;
+    right: 1%;
+    top: 10%;
+}
+
+#ObjMonDiv_AreaMon {
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    left: 15%;
+    top: 15%;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+#ObjMonDiv_AreaMonAdd {
+    width: 400px;
+    height: auto;
+    position: fixed;
+    left: auto;
+    right: 1%;
+    top: 10%;
+}
+
+#FunHelpDiv_About{
+    width: 700px;
+    height: 500px;
+    position: fixed;
+    left: 15%;
+    top: 15%;
+}
+
+#SysSetDiv_Password {
+    width: 400px;
+    height: auto;
+    position: fixed;
+    left: 15%;
+    top: 15%;
+}
+
+.Password_Change_Notice{
+    display: none;
+    width: 80%;
+}
+
+.ArchDiv_Add_Notice {
+    display: none;
+    position: absolute;
+    width: 70%;
+    top: 2%;
+    right: 7%;
+}
+
+.ObjMonDiv_Add_Notice {
+    position: absolute;
+    right: 5px;
+    top: 110px;
+    display: none;
+}
+
+.divButton_closeDiv {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+}
+
+.divTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.divTable {
+    position: relative;
+    top: 10px;
+    font-size: 0.7em;
+}
+
+.rightHeadFloatDiv {
+    z-index: 1005;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    right: 0.5%;
+    top: 0.5%;
+    display: none;
+}
+
+#basemapDiv {
+    width: 489px;
+    height: 400px;
+}
+
+#userInfDiv {
+    width: 250px;
+    height: auto;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#messageDiv {
+    z-index: 1005;
+    position: absolute;
+    right: 0.5%;
+    top: 0.5%;
+    display: none;
+    width: 230px;
+    height: 98%;
+}
+

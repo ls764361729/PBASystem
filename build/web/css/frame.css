@@ -1,0 +1,164 @@
+header {
+    height: 60px;
+    width: 100%
+}
+#headImg {
+    width: 75px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+}
+
+#headText {
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    font-size: 2.5em;
+    color: white;
+    font-family: "华文新魏";
+}
+
+#headICO {
+    float: right;
+    letter-spacing: 3.5px;
+    position: relative;
+    right: 7px
+}
+
+#display {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-top-width: thin;
+    border-top-style: groove;
+    border-top-color: black;
+}
+
+#toolBar {
+    background-color: #003366;
+    height: 100%;
+    width: 75px;
+    color: white;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 65px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1002;
+    border-right-width: medium;
+    border-right-style: groove;
+    border-right-color: white;
+}
+
+#mapDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 75px;
+    right: 0px;
+    border-left-width: thin;
+    border-left-style: groove;
+    border-left-color: white;
+}
+
+.secMenu {
+    background-color: #003366;
+    width: 160px;
+    color: white;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 65px;
+    position: absolute;
+    left: 160px;
+    font-size: 0.85em;
+    border-left-width: medium;
+    border-left-style: groove;
+    border-left-color: white;
+    display: none;
+    z-index: 1002;
+}
+
+.secMenu li {
+    list-style: none;
+    line-height: 65px;
+    vertical-align: middle;
+}
+
+.secMenu li a {
+    line-height: 65px;
+    vertical-align: middle;
+    color: white !important;
+}
+
+#MesToolMenu {
+    position: absolute;
+    top: 15px;
+    height: 130px;
+}
+
+#ArchToolMenu {
+    position: absolute;
+    top: 80px;
+    height: 195px;
+}
+
+#ObjMonToolMenu {
+    position: absolute;
+    top: 145px;
+    height: 195px;
+}
+
+#SysSetToolMenu {
+    position: absolute;
+    top: 210px;
+    height: 195px;
+}
+
+#FunHelpToolMenu {
+    position: absolute;
+    top: 275px;
+    height: 130px;
+}
+
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+.toolBarItem {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+
+.toolBarItem li {
+    list-style: none;
+    line-height: 65px;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.toolBarItem li a {
+    line-height: 65px;
+    vertical-align: middle;
+}
+
+.nav-text {
+    line-height: 65px;
+    vertical-align: middle;
+    display: none;
+    font-size: 0.85em;
+}
