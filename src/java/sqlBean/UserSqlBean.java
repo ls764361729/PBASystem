@@ -18,9 +18,9 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 public class UserSqlBean implements ServletRequestAware{
     
-    private String uri = "jdbc:mysql://115.159.187.179:3306/xwfxdb?useUnicode=true&characterEncoding=gbk";
+    private String uri = "jdbc:mysql://localhost:3306/pbas";
     private String driver = "com.mysql.jdbc.Driver";
-    private String user = "gsql";
+    private String user = "pbas";
     private String password = "19960724";
 
     private static Connection con = null;

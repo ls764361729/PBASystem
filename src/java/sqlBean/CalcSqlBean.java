@@ -18,10 +18,9 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 public class CalcSqlBean implements ServletRequestAware {
 
-    private String uri = "jdbc:mysql://115.159.187.179:3306/xwfxdb?useUnicode=true&characterEncoding=gbk";
-    private String uric = "jdbc:mysql://115.159.187.179:3306/xwfxcalcdb?useUnicode=true&characterEncoding=gbk";
+    private String uri = "jdbc:mysql://localhost:3306/pbas";
     private String driver = "com.mysql.jdbc.Driver";
-    private String user = "gsql";
+    private String user = "pbas";
     private String password = "19960724";
 
     private static Connection con = null;
@@ -54,21 +53,6 @@ public class CalcSqlBean implements ServletRequestAware {
         this.uri = uri;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getUric() {
-        return uric;
-    }
-
-    /**
-     *
-     * @param uric
-     */
-    public void setUric(String uric) {
-        this.uric = uric;
-    }
 
     /**
      *
@@ -140,7 +124,7 @@ public class CalcSqlBean implements ServletRequestAware {
     public Statement getCalcStatement() {
         try {
             Class.forName(driver);//指定连接类型
-            con = DriverManager.getConnection(uric, user, password);//获取连接
+            con = DriverManager.getConnection(uri, user, password);//获取连接
             return con.createStatement();
         } catch (Exception e) {
             e.printStackTrace();

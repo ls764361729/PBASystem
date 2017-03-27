@@ -18,9 +18,9 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 public class DataSqlBean implements ServletRequestAware{
     
-    private String uri = "jdbc:mysql://115.159.187.179:3306/xwfxdatadb?useUnicode=true&characterEncoding=gbk";
+    private String uri = "jdbc:mysql://localhost:3306/pbas";
     private String driver = "com.mysql.jdbc.Driver";
-    private String user = "gsql";
+    private String user = "pbas";
     private String password = "19960724";
 
     private static Connection con = null;
@@ -255,7 +255,7 @@ public class DataSqlBean implements ServletRequestAware{
     public ArrayList selectDayTable(String deviceID,String pDate){
         try{
             int i = 0;
-            String sql="SELECT * FROM " + deviceID + "_" + pDate;
+            String sql="SELECT * FROM trkpnt_" + deviceID + "_" + pDate;
             st = getStatement();
             rs = st.executeQuery(sql);
             ArrayList tableList=new ArrayList();
@@ -280,7 +280,7 @@ public class DataSqlBean implements ServletRequestAware{
      */
     public ArrayList returnPepDayTrack(String deviceID,String pDate){
         try{
-            String sql="SELECT * FROM " + deviceID + "_" + pDate;
+            String sql="SELECT * FROM trkpnt_" + deviceID + "_" + pDate;
             st = getStatement();
             rs = st.executeQuery(sql);
             ArrayList pntList = new ArrayList();
