@@ -12,31 +12,26 @@
         <meta http-equiv="content-type" content="text/html;charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="http://meteorx.cn:8080/xwfxDev/img/CN_sifa_head.ico" media="screen" />
+        <link rel="shortcut icon" type="image/x-icon" href="./img/CN_sifa_head.ico" media="screen" />
 
-        <link rel="stylesheet" href="http://meteorx.cn/arcgis_js_api/library/3.17/3.17/esri/css/esri.css">
-        <link rel="stylesheet" href="http://meteorx.cn/arcgis_js_api/library/3.17/3.17/dijit/themes/claro/claro.css">
+        <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-        <link href="http://meteorx.cn:8080/xwfxDev/css/body.css" rel="stylesheet" type="text/css"/>
-        <link href="http://meteorx.cn:8080/xwfxDev/css/floatDiv.css" rel="stylesheet" type="text/css"/>
-        <link href="http://meteorx.cn:8080/xwfxDev/css/frame.css" rel="stylesheet" type="text/css"/>
-        <link href="http://meteorx.cn:8080/xwfxDev/css/iconfont.css" rel="stylesheet" type="text/css"/>
-        <link href="http://meteorx.cn:8080/xwfxDev/css/loader.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/body.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/floatDiv.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/frame.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/iconfont.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/loader.css" rel="stylesheet" type="text/css"/>
 
-
-        <!-- jQuery old version
-        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-        -->
-        <script src="http://meteorx.cn/arcgis_js_api/library/3.17/3.17/init.js"></script>
+        <script src="https://js.arcgis.com/3.20/"></script>
         <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-        <script src="http://meteorx.cn:8080/xwfxDev/js/divAct.js" type="text/javascript"></script>
-        <script src="http://meteorx.cn:8080/xwfxDev/js/loading.js" type="text/javascript"></script>
-        <script src="http://meteorx.cn:8080/xwfxDev/js/mapLoad.js" type="text/javascript"></script>
-        <script src="http://meteorx.cn:8080/xwfxDev/js/menuAct.js" type="text/javascript"></script>
-        <script src="http://meteorx.cn:8080/xwfxDev/js/mapSpatialConv.js" type="text/javascript"></script>
+        <script src="./js/divAct.js" type="text/javascript"></script>
+        <script src="./js/loading.js" type="text/javascript"></script>
+        <script src="./js/mapLoad.js" type="text/javascript"></script>
+        <script src="./js/menuAct.js" type="text/javascript"></script>
+        <script src="./js/mapSpatialConv.js" type="text/javascript"></script>
 
 
         <script>
@@ -101,7 +96,7 @@
                     <h3 calss="h_weight">在线人数：<span id="onlinePep" class="label_load label label-warning">X人</span></h3>
                 </div>
                 <div id="loadRight">
-                    <img id="loadMap_Haimen" src="http://meteorx.cn:8080/xwfxDev/img/Himen_SimpleMap_White_lim[limit].png" height="240px" width="260px" />
+                    <img id="loadMap_Haimen" src="./img/Himen_SimpleMap_White_lim[limit].png" height="240px" width="260px" />
                 </div>
             </div>
             <div class="loader">
@@ -118,7 +113,7 @@
         <div id="frame">
             <header>
                 <div id="headImg">
-                    <img src="http://meteorx.cn:8080/xwfxDev/img/CN_sifa_lim[limit].png" width="50" height="50" >
+                    <img src="./img/CN_sifa_lim[limit].png" width="50" height="50" >
                 </div>
                 <div id="headText">
                     <p><span style="font-family: 'Times New Roman';font-size: 0.8em">PBA System</span> 司法社区矫正管理系统</p>
@@ -202,7 +197,7 @@
                 <div id="userInfDiv" class="panel panel-default rightHeadFloatDiv">
                     <a class="divicon divButton_closeDiv" href="#" role="button" onclick="$('#userInfDiv').hide('fast')">&#xe634;</a>
                     <div class="panel-body">
-                        <img src="http://meteorx.cn:8080/xwfxDev/img/DefaultUserPhoto_lim[limit].png" class="img-circle" height="120px" width="120px" >
+                        <img src="./img/DefaultUserPhoto_lim[limit].png" class="img-circle" height="120px" width="120px" >
                         <table class="table table-condensed" style="position: relative;top: 15px">
                             <tr>
                                 <td>用户：<span><%=(String) session.getAttribute("userName")%></span></td>

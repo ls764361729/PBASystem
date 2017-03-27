@@ -55,7 +55,7 @@
         <div id="login_div">
             <header>
                 <br/>
-                <img src="http://meteorx.cn:8080/xwfxDev/img/CN_sifa_lim[limit].png" height="200px" width="200px" alt="海门市司法社区矫正"/>
+                <img src="./img/CN_sifa_lim[limit].png" height="200px" width="200px" alt="海门市司法社区矫正"/>
                 <br/><br/>
                 <span style="font-weight: 500;font-size: 2.8em;letter-spacing: 2px;">
                     PBA System 司法社区矫正管理系统
