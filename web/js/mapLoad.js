@@ -27,8 +27,8 @@ require(["esri/map",
         function (Map, Draw, Point, Circle, Polygon, SimpleMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, CartographicLineSymbol, SpatialReference, Graphic, InfoTemplate, GraphicsLayer, BasemapGallery, dom, on, Color) {
             map = new Map("mapDiv", {
                 basemap: "osm",
-                center: [120.90265431176772, 32.02045045560068],
-                zoom: 17,
+                center: [121.1773281357, 31.8902227586],
+                zoom: 14,
                 sliderStyle: "small"
             });
 
@@ -63,8 +63,8 @@ require(["esri/map",
                     SimpleFillSymbol.STYLE_NULL,
                     new SimpleLineSymbol(
                             SimpleLineSymbol.STYLE_SHORTDASHDOTDOT,
-                            new Color([105, 105, 105]),
-                            2
+                            new Color([50, 50, 50, 0.25]),
+                            0.3
                             ), new Color([255, 255, 0, 0.25])
                     );
 
@@ -134,7 +134,6 @@ require(["esri/map",
                         }
                         map.removeLayer("onlineObjLayer");
                         map.addLayer(onlineObjLayer);
-                        console.dir(onlineObjLayer);
                     }
                 });
 
@@ -166,22 +165,33 @@ require(["esri/map",
                                 "区域类型": senJson.areaTypeName,
                                 "敏感程度": senJson.areaTypeGra
                             };
+                            
+                            var SenColor = new Color("#ffe100");
+                            if(senJson.areaTypeGra > 16){
+                                SenColor = new Color("#ff2d00");
+                            }else if(senJson.areaTypeGra <= 16 && senJson.areaTypeGra > 12){
+                                SenColor = new Color("#ff9d00");
+                            }else if(senJson.areaTypeGra <= 12 && senJson.areaTypeGra > 8){
+                                SenColor = new Color("#ffe100");
+                            }else if(senJson.areaTypeGra <= 8 && senJson.areaTypeGra > 4){
+                                SenColor = new Color("#74ff00");
+                            }else if(senJson.areaTypeGra <= 4){
+                                SenColor = new Color("#00ff8e");
+                            }
+                            
+                            
                             var infoTemplate = new InfoTemplate("敏感区域信息");
                             var areaFillSymbol = new SimpleFillSymbol(
                                     SimpleFillSymbol.STYLE_SOLID,
                                     new SimpleLineSymbol(
-                                            SimpleLineSymbol.STYLE_SHORTDASHDOTDOT,
-                                            new Color([105, 105, 105]),
-                                            2
-                                            ), new Color([255, 255, 0, 0.25])
+                                            SimpleLineSymbol.STYLE_NULL
+                                            ), SenColor
                                     );
                             var graphic = new Graphic(circleGeometry, areaFillSymbol, areaAttributes);
                             graphic.setInfoTemplate(infoTemplate);
-                            console.dir(graphic);
                             senAreaLayer.add(graphic);
                         });
                         map.addLayer(senAreaLayer);
-                        console.dir(senAreaLayer);
                     }
                 });
                 console.log("load senArea OK!");
@@ -221,8 +231,8 @@ require(["esri/map",
                                     SimpleFillSymbol.STYLE_SOLID,
                                     new SimpleLineSymbol(
                                             SimpleLineSymbol.STYLE_SHORTDASHDOTDOT,
-                                            new Color([105, 105, 105]),
-                                            2
+                                            new Color([105, 105, 105, 0.5]),
+                                            1
                                             ), new Color([60, 179, 113, 0.05])
                                     );
 
@@ -230,7 +240,6 @@ require(["esri/map",
                             graphic.setInfoTemplate(infoTemplate);
                             atAreaLayer.add(graphic);
                         });
-                        console.dir(atAreaLayer);
                         map.addLayer(atAreaLayer);
                     }
                 });
