@@ -119,30 +119,6 @@ public class DataSqlBean implements ServletRequestAware{
         }
     }
     
-    
-    //选择某日(pDate)的所有数据表
-
-    /**
-     *
-     * @param pDate
-     * @return
-     */
-    public ArrayList selectDayTable(String pDate){
-        try{
-            String sql="SHOW TABLES LIKE '%" + pDate + "'";
-            st = getStatement();
-            rs = st.executeQuery(sql);
-            ArrayList tableList=new ArrayList();
-            while(rs.next()){
-                tableList.add(rs.getString(1));
-            }
-            return tableList;
-        }catch(Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-    
     //选择数据表
 
     /**
@@ -171,18 +147,19 @@ public class DataSqlBean implements ServletRequestAware{
         try{
             ArrayList pntList = new ArrayList();
             String pDate = GetTimeBean.getDate();
-            List <String> tableName = selectDayTable(pDate);
-            for (String pTable: tableName){
-                rs=selectOBJ(pTable);
-                if(rs.last()){
-                    PntListBean pnt =new PntListBean();
-                    pnt.setDeviceID(pTable.substring(0, pTable.indexOf("_"))); //去掉pTable结尾的日期
-                    pnt.setpTime(rs.getString("pTime"));
-                    pnt.setsCoordX(rs.getString("sCoordX"));
-                    pnt.setsCoordY(rs.getString("sCoordY"));
-                    pntList.add(pnt);
-                }
+            
+            String sql = "select * from trkpnt_20160501 x where pTime in (select max(pTime) from trkpnt_"+pDate+" where pepID = x.pepID);";
+            rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                PntListBean pnt =new PntListBean();
+                pnt.setPepID(rs.getInt("pepID"));
+                pnt.setpTime(rs.getString("pTime"));
+                pnt.setsCoordX(rs.getString("sCoordX"));
+                pnt.setsCoordY(rs.getString("sCoordY"));
+                pntList.add(pnt);
             }
+            
             closeCon();
             return pntList;
         }catch(Exception e){
@@ -201,9 +178,13 @@ public class DataSqlBean implements ServletRequestAware{
      */
     public int loadOnlinePep(String pDate){
         try{
-            ArrayList tableName = selectDayTable(pDate);
+            String sql = "select pepID from trkpnt_"+pDate+" GROUP BY pepID";
+            rs = st.executeQuery(sql);
+            int pepNum = 0;
+            if(rs.last())
+                pepNum = rs.getRow();
             closeCon();
-            return tableName.size();
+            return pepNum;
         }catch(Exception e){
             e.printStackTrace();
             closeCon();
@@ -220,52 +201,45 @@ public class DataSqlBean implements ServletRequestAware{
      */
     public ArrayList returnDayTrack(String pDate){
         try{
-            ArrayList pntListCol = new ArrayList();
-            ArrayList tableName = selectDayTable(pDate);
-            for (Object pTable: tableName){
-                ArrayList pntList = new ArrayList();
-                rs=selectOBJ(pTable.toString());
-                while(rs.next()){
+            ArrayList dataset = new ArrayList();
+            rs = selectOBJ("trkpnt_"+pDate);
+            while(rs.next()){
+                int flag = 0;
+                
+                if(!dataset.isEmpty()){
+                    
+                    for (int i = 0; i<dataset.size(); i++){
+                        List<PntListBean> data = (ArrayList)dataset.get(i);
+                        if (data.get(0).getPepID() == rs.getInt("pepID")) {
+                            PntListBean pnt =new PntListBean();
+                            pnt.setPepID(rs.getInt("pepID"));
+                            pnt.setpTime(rs.getString("pTime"));
+                            pnt.setsCoordX(rs.getString("sCoordX"));
+                            pnt.setsCoordY(rs.getString("sCoordY"));
+                            data.add(pnt);
+                            flag = 1;
+                            break;
+                        }
+                    }
+		}
+                
+		if (dataset.isEmpty() || flag == 0){
+                    List<PntListBean> data = new ArrayList();
                     PntListBean pnt =new PntListBean();
-                    pnt.setDeviceID(pTable.toString());
+                    pnt.setPepID(rs.getInt("pepID"));
                     pnt.setpTime(rs.getString("pTime"));
                     pnt.setsCoordX(rs.getString("sCoordX"));
                     pnt.setsCoordY(rs.getString("sCoordY"));
-                    pntList.add(pnt);
-                }
-                pntListCol.add(pntList);
+                    data.add(pnt);
+                    dataset.add(data);
+		}
             }
+            
             closeCon();
-            return pntListCol;
+            return dataset;
         }catch(Exception e){
             e.printStackTrace();
             closeCon();
-            return null;
-        }
-    }
-    
-    //选择某设备(deviceID)某日(pDate)的所有数据表
-
-    /**
-     *
-     * @param deviceID
-     * @param pDate
-     * @return
-     */
-    public ArrayList selectDayTable(String deviceID,String pDate){
-        try{
-            int i = 0;
-            String sql="SELECT * FROM trkpnt_" + deviceID + "_" + pDate;
-            st = getStatement();
-            rs = st.executeQuery(sql);
-            ArrayList tableList=new ArrayList();
-            while(rs.next()){
-                tableList.add(rs.getString(1));
-                i++;
-            }
-            return tableList;
-        }catch(Exception e){
-            e.printStackTrace();
             return null;
         }
     }
@@ -274,19 +248,19 @@ public class DataSqlBean implements ServletRequestAware{
 
     /**
      *
-     * @param deviceID
+     * @param pepID
      * @param pDate
      * @return
      */
-    public ArrayList returnPepDayTrack(String deviceID,String pDate){
+    public ArrayList returnPepDayTrack(int pepID,String pDate){
         try{
-            String sql="SELECT * FROM trkpnt_" + deviceID + "_" + pDate;
+            String sql="SELECT * FROM trkpnt_" + pDate + "WHERE pepID=" + pepID;
             st = getStatement();
             rs = st.executeQuery(sql);
             ArrayList pntList = new ArrayList();
             while(rs.next()){
                 PntListBean pnt =new PntListBean();
-                pnt.setDeviceID(deviceID);
+                pnt.setPepID(pepID);
                 pnt.setpTime(rs.getString("pTime"));
                 pnt.setsCoordX(rs.getString("sCoordX"));
                 pnt.setsCoordY(rs.getString("sCoordY"));

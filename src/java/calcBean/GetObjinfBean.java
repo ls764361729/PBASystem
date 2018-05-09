@@ -47,15 +47,16 @@ public class GetObjinfBean {
                 ObjInfBean objInf = new ObjInfBean();
                 objInf.setsCoordX(pnt.getsCoordX());
                 objInf.setsCoordY(pnt.getsCoordY());
-                objInf.setDeviceID(pnt.getDeviceID());
+                objInf.setPepID(pnt.getPepID());
                 objInf.setpTime(pnt.getpTime());
 
                 if(manaPepList!=null){
                     for(ManaPepBean manaPep : manaPepList){
-                        if(manaPep.getDeviceID().equals(pnt.getDeviceID())){
+                        if(manaPep.getPepID()==(pnt.getPepID())){
 
                             objInf.setPepID(manaPep.getPepID());
                             objInf.setPepName(manaPep.getPepName());
+                            objInf.setDeviceID(manaPep.getDeviceID());
                             objInf.setPepIDcardNum(manaPep.getPepIDcardNum());
                             objInf.setPepSex(manaPep.getPepSex());
                             objInf.setPepAge(manaPep.getPepAge());

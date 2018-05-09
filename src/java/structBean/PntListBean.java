@@ -13,37 +13,42 @@ package structBean;
  */
 
 public class PntListBean {
-    private String deviceID;
+    private int pepID;
     private String pTime;
     private String sCoordX;
     private String sCoordY;
+    int areaID;
     
     //构造函数
 
     /**
      *
      */
-    public PntListBean(/*String deviceID,String pTime,String sCoordX,String sCoordY*/){
-//        this.deviceID = deviceID;
-//        this.pTime = pTime;
-//        this.sCoordX = sCoordX;
-//        this.sCoordY = sCoordY
+    public PntListBean(){
+
+    }
+
+    public PntListBean(int pepID,String pTime,String sCoordX,String sCoordY){
+        this.pepID = pepID;
+        this.pTime = pTime;
+        this.sCoordX = sCoordX;
+        this.sCoordY = sCoordY;
     }
 
     /**
      *
      * @return
      */
-    public String getDeviceID() {
-        return deviceID;
+    public int getPepID() {
+        return pepID;
     }
 
     /**
      *
-     * @param deviceID
+     * @param pepID
      */
-    public void setDeviceID(String deviceID) {
-        this.deviceID = deviceID;
+    public void setPepID(int pepID) {
+        this.pepID = pepID;
     }
 
     /**
@@ -92,6 +97,22 @@ public class PntListBean {
      */
     public void setsCoordY(String sCoordY) {
         this.sCoordY = sCoordY;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getAreaID() {
+        return areaID;
+    }
+
+    /**
+     *
+     * @param areaID
+     */
+    public void setAreaID(int areaID) {
+        this.areaID = areaID;
     }
     
 }
